@@ -1,0 +1,42 @@
+<form id="expenseForm" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="receiptUpload" class="form-label">Upload Receipt</label>
+        <input 
+            type="file" 
+            id="receiptUpload" 
+            class="form-control" 
+            accept=".jpg, .jpeg, .png, .pdf" 
+            required
+        >
+        <small class="form-text text-muted">
+            Supported formats: JPG, PNG, PDF (Max: 5MB).
+        </small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    document.getElementById('expenseForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const fileInput = document.getElementById('receiptUpload');
+        const file = fileInput.files[0];
+
+        // Validate file size (max 5MB)
+        if (file && file.size > 5 * 1024 * 1024) {
+            alert('File size exceeds 5MB!');
+            return;
+        }
+
+        // Validate file type
+        const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+        if (file && !allowedTypes.includes(file.type)) {
+            alert('Unsupported file type! Please upload a JPG, PNG, or PDF.');
+            return;
+        }
+
+        alert('File validated and ready to upload!');
+
+        // You can proceed to upload the file to the server here
+    });
+</script>

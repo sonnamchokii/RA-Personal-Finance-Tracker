@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+    >
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            background-image: url("C:/Users/Administrator/Desktop/Personal_Finance_Tracker/Personal_Finance_Tracker/1_ab5b64c6-bff1-4631-930a-5b5a5d427dd7.webp"); /* Subtle Doodle Texture */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: contain;
+        }
+        .login-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://i.ibb.co/VtVW18z/doodle-bg.png'); /* Doodle Background */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Light opacity for subtle effect */
+        }
+        .login-logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #4A4A4A;
+            font-family: 'Dancing Script', cursive; /* Unique font */
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            position: relative;
+        }
+        .login-logo::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #1a73e8, #ff8c00);
+            margin: 5px auto;
+        }
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3c4043;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+        .google-btn i {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        .google-btn:hover {
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #202124;
+        }
+        .form-control {
+            height: 45px;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #1a73e8, #ff8c00); /* Gradient */
+            border: none;
+            border-radius: 8px;
+            height: 45px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        .footer-text {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #5f6368;
+        }
+        .footer-text a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">Personal Finance Tracker</div>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn-primary w-100">Log in</button>
+        </form>
+        <div class="google-btn" onclick="continueWithGoogle()">
+            <i class="fab fa-google"></i> Continue with Google
+        </div>
+        <div class="footer-text">
+            <a href="#">Learn more</a> about how your data is handled.
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function continueWithGoogle() {
+            alert("Google sign-in functionality to be integrated.");
+        }
+
+        // Admin, owner 
+        const adminCredentials = {
+            username: "admin",
+            password: "admin123"
+        };
+
+        const ownerCredentials = {
+            username: "05230133",
+            password: "12345678"
+        };
+
+       
+
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check credentials for admin
+            if (username === adminCredentials.username && password === adminCredentials.password) {
+                alert("Admin login successful!");
+                window.location.href = "admin.html"; // Redirect to admin home page
+            } 
+            // Check credentials for owner
+            else if (username === ownerCredentials.username && password === ownerCredentials.password) {
+                alert("owner login successful!");
+                window.location.href = "home.html"; // Redirect to owner home page
+            } 
+            
+            else {
+                alert("Invalid username or password!");
+            }
+        });
+    </script>
+</body>
+</html>
